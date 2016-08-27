@@ -28,7 +28,11 @@ class OneGameContainer implements ContainerInterface
 
     public function getNextPgn(): Pgn
     {
-        return $this->pgn;
+        $pgn = clone $this->pgn;
+
+        $this->pgn->setNull(true);
+
+        return $pgn;
     }
 
 }
