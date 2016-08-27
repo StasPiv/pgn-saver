@@ -1,0 +1,23 @@
+{
+    "name": "staspiv/pgn-saver",
+    "description": "This is utility for saving pgn",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stanislav Pivovartsev",
+            "email": "stanislav_pivovartsev@mail.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7",
+        "phpunit/phpunit": "5.5.4"
+    },
+    "autoload":{
+        "psr-4":{
+            "StasPiv\\PgnSaver\\": "src",
+            "StasPiv\\PgnSaver\\Tests\\": "Tests"
+        }
+    }
+}
