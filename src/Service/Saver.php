@@ -34,13 +34,16 @@ class Saver
         $this->fileDestination = $fileDestination;
     }
 
-    public function saveToFile()
+    /**
+     * @param int $strategy
+     */
+    public function saveToFile($strategy = FILE_APPEND)
     {
         while ( !($pgn = $this->pgnContainer->getNextPgn())->isNull() ) {
             foreach ($pgn->getHeaders() as $key => $header) {
-                file_put_contents($this->fileDestination, '['.$key.' "'.$header.'"]'.PHP_EOL, FILE_APPEND);
+                file_put_contents($this->fileDestination, '['.$key.' "'.$header.'"]'.PHP_EOL, $strategy);
             }
-            file_put_contents($this->fileDestination, PHP_EOL.$pgn->getPgnString().PHP_EOL.PHP_EOL, FILE_APPEND);
+            file_put_contents($this->fileDestination, PHP_EOL.$pgn->getPgnString().PHP_EOL.PHP_EOL, $strategy);
         }
     }
 
