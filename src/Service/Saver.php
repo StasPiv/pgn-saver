@@ -55,7 +55,7 @@ class Saver
             foreach ($pgn->getHeaders() as $key => $header) {
                 $string.='['.$key.' "'.$header.'"]'.PHP_EOL;
             }
-            $string.=PHP_EOL.$pgn->getPgnString().PHP_EOL.PHP_EOL;
+            $string.=PHP_EOL.$pgn->getPgnString().' '.$pgn->getResult().PHP_EOL.PHP_EOL;
         }
 
         return $string;

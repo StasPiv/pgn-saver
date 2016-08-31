@@ -19,6 +19,11 @@ class Pgn
     /**
      * @var string
      */
+    private $result = '';
+
+    /**
+     * @var string
+     */
     private $pgnString;
 
     /**
@@ -91,6 +96,29 @@ class Pgn
     public function addHeader(string $name, string $value): self
     {
         $this->headers[$name] = $value;
+
+        if ($name == 'Result') {
+            $this->setResult($value);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResult(): string
+    {
+        return $this->result;
+    }
+
+    /**
+     * @param string $result
+     * @return Pgn
+     */
+    public function setResult(string $result): self
+    {
+        $this->result = $result;
 
         return $this;
     }
